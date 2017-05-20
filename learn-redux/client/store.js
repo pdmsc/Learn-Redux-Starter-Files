@@ -15,8 +15,12 @@ const defaultState = {
     comments
 };
 
+const enhancers = compose(
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+);
+
 //Uses createStore from Redux to create the store, sending the rootReducer and the defaultState as params
-const store = createStore (rootReducer, defaultState);
+const store = createStore (rootReducer, defaultState, enhancers);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

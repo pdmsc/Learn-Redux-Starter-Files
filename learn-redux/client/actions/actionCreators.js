@@ -20,6 +20,7 @@ export function addComment(postId, author, comment) {
 
 //remove comment
 export function removeComment(postId, index) {
+    console.log("Removing", postId);
     return {
         type:'REMOVE_COMMENT',
         index,
